@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Armor</title>
+  <link rel="stylesheet" href="/style.css"> <!-- Conexión opcional al CSS -->
+</head>
+<body>
+  <h1>¡Hola, Express!</h1>
+  <button id="btn">Haz clic aquí</button>
+  <script src="/script.js"></script> <!-- Conexión al archivo JS -->
+  <h1>PC Armor</h1>
+
+
+<!--Procesadores-->
+
+<!-- Forms chose Family Processor -->
+  <form>
+      <label for="Family_Processor">Family Processor</label>
+      <select id="Family_Processor" name="Family_Processor">
+          <option value="nota" disabled>--Serie Intel--</option>
+          <option value="intel_i3">Intel Core i3 (Gama baja)</option>
+          <option value="intel_i5">Intel Core i5 (Gama media)</option>
+          <option value="intel_i7">Intel Core i7 (Gama alta)</option>
+          <option value="intel_i9">Intel Core i9 (Gama entusiasta)</option>
+          <option value="intel_Pentium">Intel Pentium (Gama económica)</option>
+          <option value="intel_Celeron">Intel Celeron (Gama básica)</option>
+          <option value="intel_Xeon">Intel Xeon (Uso profesional y servidores)</option>
+      </select>
+  </form>
+
+    <!-- Form Processor i3 -->
+    <form id="i3">
+        <label for="Processor_i3">Processor i3</label>
+        <select id="Processor_i3" name="Processor_i3">
+            <option value="nota" disabled >--First generation--</option>
+            <option value="i3-530">Intel Core i3-530</option>
+            <option value="i3-540">Intel Core i3-540</option>
+
+            <option value="nota" disabled >--Second generation--</option>
+            <option value=" i3-2100">Intel Core i3-2100</option>
+            <option value="i3-2120">Intel Core i3-2120</option>
+
+            <option value="nota" disabled >--Third generation--</option>
+            <option value="i3-3220">Intel Core i3-3220</option>
+            <option value="i3-3240">Intel Core i3-3240</option>
+
+            <option value="nota" disabled >--Fourth generation--</option>
+            <option value="i3-4130">Intel Core i3-4130</option>
+            <option value="i3-4150">Intel Core i3-4150</option>
+
+            <option value="nota" disabled >--Fifth generation--</option>
+            <option value="i3-6100">Intel Core i3-6100</option>
+            <option value="i3-6300">Intel Core i3-6300</option>
+
+            <option value="nota" disabled >--Sixth generation--</option>
+            <option value="i3-7100">Intel Core i3-7100</option>
+            <option value="i3-7300">Intel Core i3-7300</option>
+
+            <option value="nota" disabled >--Seventh generation--</option>
+            <option value="i3-8100">Intel Core i3-8100</option>
+            <option value="i3-8350K">Intel Core i3-8350K </option>
+
+            <option value="nota" disabled >--Eighth generation--</option>
+            <option value="i3-9100">Intel Core i3-9100</option>
+            <option value="i3-9100F">Intel Core i3-9100F</option>
+
+            <option value="nota" disabled >--Ninth generation--</option>
+            <option value="i3-10100">Intel Core i3-10100</option>
+            <option value="i3-10100F">Intel Core i3-10100F</option>
+
+            <option value="nota" disabled >--Tenth generation--</option>
+            <option value="i3-11100">Intel Core i3-11100</option>
+            <option value="i3-11300">Intel Core i3-11300</option>
+
+            <option value="nota" disabled >--Eleventh generation--</option>
+            <option value="i3-12100">Intel Core i3-12100</option>
+            <option value="i3-12100F">Intel Core i3-12100F</option>
+
+            <option value="nota" disabled >--Twelfth generation--</option>
+            <option value="i3-13100">Intel Core i3-13100</option>
+            <option value="13100F">Intel Core i3-13100F</option>
+        </select>
+    </form>
+
+    <!-- Form Processor i5 -->
+    <form id="i5">
+        <label for="Processor_i5">Processor i5</label>
+        <select id="Processor_i5" name="Processor_i5">
+            <option value="nota" disabled>--First Generation--</option>
+            <option value="i5-650">Intel Core i5-650</option>
+            <option value="i5-660">Intel Core i5-660</option>
+            <option value="i5-670">Intel Core i5-670</option>
+            <option value="i5-750">Intel Core i5-750</option>
+            <option value="i5-760">Intel Core i5-760</option>
+
+            <option value="nota" disabled>--Second Generation--</option>
+            <option value="i5-2300">Intel Core i5-2300</option>
+            <option value="i5-2400">Intel Core i5-2400</option>
+            <option value="i5-2500">Intel Core i5-2500</option>
+            <option value="i5-2500K">Intel Core i5-2500K</option>
+
+            <option value="nota" disabled>--Third Generation--</option>
+            <option value="i5-3330">Intel Core i5-3330</option>
+            <option value="i5-3450">Intel Core i5-3450</option>
+            <option value="i5-3570">Intel Core i5-3570</option>
+            <option value="i5-3570K">Intel Core i5-3570K</option>
+
+            <option value="nota" disabled>--Fourth Generation--</option>
+            <option value="i5-4430">Intel Core i5-4430</option>
+            <option value="i5-4570">Intel Core i5-4570</option>
+            <option value="i5-4670">Intel Core i5-4670</option>
+            <option value="i5-4670K">Intel Core i5-4670K</option>
+
+            <option value="nota" disabled>--Fifth Generation--</option>
+            <option value="i5-5200U">Intel Core i5-5200U</option>
+            <option value="i5-5250U">Intel Core i5-5250U</option>
+            <option value="i5-5675C">Intel Core i5-5675C</option>
+            <option value="i5-5575R">Intel Core i5-5575R</option>
+
+            <option value="nota" disabled>--Sixth Generation--</option>
+            <option value="i5-6400">Intel Core i5-6400</option>
+            <option value="i5-6500">Intel Core i5-6500</option>
+            <option value="i5-6600">Intel Core i5-6600</option>
+            <option value="i5-6600K">Intel Core i5-6600K</option>
+
+            <option value="nota" disabled>--Seventh Generation--</option>
+            <option value="i5-7400">Intel Core i5-7400</option>
+            <option value="i5-7500">Intel Core i5-7500</option>
+            <option value="i5-7600">Intel Core i5-7600</option>
+            <option value="i5-7600K">Intel Core i5-7600K</option>
+
+            <option value="nota" disabled>--Eighth Generation--</option>
+            <option value="i5-8400">Intel Core i5-8400</option>
+            <option value="i5-8500">Intel Core i5-8500</option>
+            <option value="i5-8600">Intel Core i5-8600</option>
+            <option value="i5-8600K">Intel Core i5-8600K</option>
+
+            <option value="nota" disabled>--Ninth Generation--</option>
+            <option value="i5-9400">Intel Core i5-9400</option>
+            <option value="i5-9500">Intel Core i5-9500</option>
+            <option value="i5-9600">Intel Core i5-9600</option>
+            <option value="i5-9600K">Intel Core i5-9600K</option>
+
+            <option value="nota" disabled>--Tenth Generation--</option>
+            <option value="i5-10400">Intel Core i5-10400</option>
+            <option value="i5-10400F">Intel Core i5-10400F</option>
+            <option value="i5-10600">Intel Core i5-10600</option>
+            <option value="i5-10600K">Intel Core i5-10600K</option>
+
+            <option value="nota" disabled>--Eleventh Generation--</option>
+            <option value="i5-11400">Intel Core i5-11400</option>
+            <option value="i5-11400F">Intel Core i5-11400F</option>
+            <option value="i5-11600">Intel Core i5-11600</option>
+            <option value="i5-11600K">Intel Core i5-11600K</option>
+
+            <option value="nota" disabled>--Twelfth Generation--</option>
+            <option value="i5-12400">Intel Core i5-12400</option>
+            <option value="i5-12400F">Intel Core i5-12400F</option>
+            <option value="i5-12600K">Intel Core i5-12600K</option>
+            <option value="i5-12600KF">Intel Core i5-12600KF</option>
+
+            <option value="nota" disabled>--Thirteenth Generation--</option>
+            <option value="i5-13400">Intel Core i5-13400</option>
+            <option value="i5-13400F">Intel Core i5-13400F</option>
+            <option value="i5-13600K">Intel Core i5-13600K</option>
+            <option value="i5-13600KF">Intel Core i5-13600KF</option>
+        </select>
+    </form>
+
+    <!-- Form Processor i7 -->
+    <form id="i7">
+        <label for="Processor_i7">Processor i7</label>
+        <select id="Processor_i7" name="Processor_i7">
+            <option value="nota" disabled>--First Generation--</option>
+            <option value="i7-860">Intel Core i7-860</option>
+            <option value="i7-870">Intel Core i7-870</option>
+            <option value="i7-920">Intel Core i7-920</option>
+            <option value="i7-940">Intel Core i7-940</option>
+            <option value="i7-960">Intel Core i7-960</option>
+
+            <option value="nota" disabled>--Second Generation--</option>
+            <option value="i7-2600">Intel Core i7-2600</option>
+            <option value="i7-2600K">Intel Core i7-2600K</option>
+            <option value="i7-2700K">Intel Core i7-2700K</option>
+
+            <option value="nota" disabled>--Third Generation--</option>
+            <option value="i7-3770">Intel Core i7-3770</option>
+            <option value="i7-3770K">Intel Core i7-3770K</option>
+            <option value="i7-3820">Intel Core i7-3820</option>
+
+            <option value="nota" disabled>--Fourth Generation--</option>
+            <option value="i7-4770">Intel Core i7-4770</option>
+            <option value="i7-4770K">Intel Core i7-4770K</option>
+            <option value="i7-4790">Intel Core i7-4790</option>
+            <option value="i7-4790K">Intel Core i7-4790K</option>
+
+            <option value="nota" disabled>--Fifth Generation--</option>
+            <option value="i7-5557U">Intel Core i7-5557U</option>
+            <option value="i7-5600U">Intel Core i7-5600U</option>
+            <option value="i7-5700HQ">Intel Core i7-5700HQ</option>
+            <option value="i7-5775C">Intel Core i7-5775C</option>
+
+            <option value="nota" disabled>--Sixth Generation--</option>
+            <option value="i7-6700">Intel Core i7-6700</option>
+            <option value="i7-6700K">Intel Core i7-6700K</option>
+            <option value="i7-6820HQ">Intel Core i7-6820HQ</option>
+            <option value="i7-6900K">Intel Core i7-6900K</option>
+
+            <option value="nota" disabled>--Seventh Generation--</option>
+            <option value="i7-7700">Intel Core i7-7700</option>
+            <option value="i7-7700K">Intel Core i7-7700K</option>
+            <option value="i7-7820HQ">Intel Core i7-7820HQ</option>
+            <option value="i7-7820X">Intel Core i7-7820X</option>
+
+            <option value="nota" disabled>--Eighth Generation--</option>
+            <option value="i7-8700">Intel Core i7-8700</option>
+            <option value="i7-8700K">Intel Core i7-8700K</option>
+            <option value="i7-8550U">Intel Core i7-8550U</option>
+            <option value="i7-8650U">Intel Core i7-8650U</option>
+
+            <option value="nota" disabled>--Ninth Generation--</option>
+            <option value="i7-9700">Intel Core i7-9700</option>
+            <option value="i7-9700K">Intel Core i7-9700K</option>
+            <option value="i7-9750H">Intel Core i7-9750H</option>
+
+            <option value="nota" disabled>--Tenth Generation--</option>
+            <option value="i7-10700">Intel Core i7-10700</option>
+            <option value="i7-10700K">Intel Core i7-10700K</option>
+            <option value="i7-10875H">Intel Core i7-10875H</option>
+
+            <option value="nota" disabled>--Eleventh Generation--</option>
+            <option value="i7-11700">Intel Core i7-11700</option>
+            <option value="i7-11700K">Intel Core i7-11700K</option>
+            <option value="i7-11800H">Intel Core i7-11800H</option>
+
+            <option value="nota" disabled>--Twelfth Generation--</option>
+            <option value="i7-12700">Intel Core i7-12700</option>
+            <option value="i7-12700K">Intel Core i7-12700K</option>
+            <option value="i7-12800H">Intel Core i7-12800H</option>
+
+            <option value="nota" disabled>--Thirteenth Generation--</option>
+            <option value="i7-13700">Intel Core i7-13700</option>
+            <option value="i7-13700K">Intel Core i7-13700K</option>
+            <option value="i7-13800H">Intel Core i7-13800H</option>
+        </select>
+    </form>
+
+    <!-- Form Processor i9 -->
+    <form id="i9">
+        <label for="Processor_i9">Processor i9</label>
+        <select id="Processor_i9" name="Processor_i9">
+            <option value="nota" disabled>--Seventh Generation--</option>
+            <option value="i9-7900X">Intel Core i9-7900X</option>
+            <option value="i9-7920X">Intel Core i9-7920X</option>
+            <option value="i9-7960X">Intel Core i9-7960X</option>
+
+            <option value="nota" disabled>--Eighth Generation--</option>
+            <option value="i9-8950HK">Intel Core i9-8950HK</option>
+
+            <option value="nota" disabled>--Ninth Generation--</option>
+            <option value="i9-9900">Intel Core i9-9900</option>
+            <option value="i9-9900K">Intel Core i9-9900K</option>
+            <option value="i9-9980XE">Intel Core i9-9980XE</option>
+
+            <option value="nota" disabled>--Tenth Generation--</option>
+            <option value="i9-10900">Intel Core i9-10900</option>
+            <option value="i9-10900K">Intel Core i9-10900K</option>
+            <option value="i9-10980XE">Intel Core i9-10980XE</option>
+
+            <option value="nota" disabled>--Eleventh Generation--</option>
+            <option value="i9-11900">Intel Core i9-11900</option>
+            <option value="i9-11900K">Intel Core i9-11900K</option>
+
+            <option value="nota" disabled>--Twelfth Generation--</option>
+            <option value="i9-12900">Intel Core i9-12900</option>
+            <option value="i9-12900K">Intel Core i9-12900K</option>
+            <option value="i9-12950HX">Intel Core i9-12950HX</option>
+
+            <option value="nota" disabled>--Thirteenth Generation--</option>
+            <option value="i9-13900">Intel Core i9-13900</option>
+            <option value="i9-13900K">Intel Core i9-13900K</option>
+            <option value="i9-13950HX">Intel Core i9-13950HX</option>
+        </select>
+    </form>
+    <!--Fin de procesaores -->
+
+    <!--Graficas -->
+    <form id="graphic_i3_530">
+        <label for="">Graficas para i3</label>
+        <select name="" id="">
+            <option value="Intel HD Graphics">Intel HD Graphics</option>
+            <option value="NVIDIA GeForce GT 210">NVIDIA GeForce GT 210</option>
+            <option value="NVIDIA GeForce GT 240">NVIDIA GeForce GT 240</option>
+            <option value="NVIDIA GeForce GTX 460">NVIDIA GeForce GTX 460</option>
+            <option value="NVIDIA GeForce GTX 560">NVIDIA GeForce GTX 560</option>
+            <option value="AMD Radeon HD 5450">AMD Radeon HD 5450</option>
+            <option value="AMD Radeon HD 6570">AMD Radeon HD 6570</option>
+            <option value="AMD Radeon HD 6670">AMD Radeon HD 6670</option>
+            <option value="AMD Radeon R7 240">AMD Radeon R7 240</option>
+        </select>
+    </form>
+
+    <form id="graphic_i3">
+        <label for="">Graficas para i3</label>
+        <select name="" id="">
+            <option value="Intel HD Graphics 2000">Intel HD Graphics 2000</option>
+            <option value="NVIDIA GeForce GT 430">NVIDIA GeForce GT 430</option>
+            <option value="NVIDIA GeForce GT 440">NVIDIA GeForce GT 440</option>
+            <option value="NVIDIA GeForce GTX 550 Ti">NVIDIA GeForce GTX 550 Ti</option>
+            <option value="NVIDIA GeForce GTX 560 Ti">NVIDIA GeForce GTX 560 Ti</option>
+            <option value="AMD Radeon HD 6570">AMD Radeon HD 6570</option>
+            <option value="AMD Radeon HD 6670">AMD Radeon HD 6670</option>
+            <option value="AMD Radeon R7 240">AMD Radeon R7 240</option>
+            <option value="AMD Radeon R7 250">AMD Radeon R7 250</option>
+            <option value="AMD Radeon R9 270">AMD Radeon R9 270</option>
+        </select>
+    </form>
+
+
+
+</body>
+</html>
