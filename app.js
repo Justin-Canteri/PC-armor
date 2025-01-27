@@ -15,6 +15,8 @@ app.get('/', (req, res) => {
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en http://localhost:${PORT}`));
 
+
+//conectar con base de datos
 const db = new sqlite3.Database(path.join(__dirname, 'BD', 'PC-ARMOR.db'), (err) => {
   if (err) {
       console.error('Error al conectar con la base de datos:', err.message);
@@ -23,11 +25,12 @@ const db = new sqlite3.Database(path.join(__dirname, 'BD', 'PC-ARMOR.db'), (err)
   }
 });
 
-
-db.all('SELECT * FROM storage', (err, rows) => {
-  if (err) {
-    console.error('Error al ejecutar la consulta:', err.message);
-  } else {
-    console.log('Resultado:', rows); // Aquí obtienes un solo objeto con el resultado
-  }
-}); 
+app.get('/data', (req, res) => {
+  db.all('SELECT generation FROM processor', (err, rows) => {
+    if (err) {
+      res.status(500).json({ error: 'Error al ejecutar la consulta' });
+    } else {
+      res.json(rows); // Devuelve los datos como JSON
+    }
+  });
+});

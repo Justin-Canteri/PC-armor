@@ -1,8 +1,3 @@
-document.getElementById('btn').addEventListener('click', () => {
-    alert('¡Hola desde JavaScript!');
-  });
-
-
   // -------------------DE ACA
   //I3
 
@@ -25,7 +20,7 @@ document.getElementById('btn').addEventListener('click', () => {
             if (selectedValue === 'intel_i3') {
                 formI3.style.display = ''; // Muestra el formulario
             } else if (formI3) {
-                formI3.style.display = 'none'; // Oculta el formulario si se selecciona otra opción
+                formI3.style.display = 'none'; // Oculta el formulario si se selecciona otra opciónz
             }
         });
     } else {
@@ -117,3 +112,27 @@ document.addEventListener('DOMContentLoaded', () => {
  
 
 //------------------- HASTA ACA DRY (DONT REPEAT YOURSELF)
+
+
+
+//base de datos
+
+let eventTarget = document.getElementById('btn');
+
+eventTarget.addEventListener('click', function() {
+    fetch('/data')
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Error al obtener los datos');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const resultado = data.map((item) => `<li>${item}</li>`).join('');
+      document.getElementById('prueba').innerHTML = `<ul>${resultado}</ul>`;
+    })
+    .catch((error) => {
+      console.error(error);
+      document.getElementById('prueba').innerHTML = 'Error al cargar los datos.';
+    });
+});
