@@ -25,12 +25,14 @@ const db = new sqlite3.Database(path.join(__dirname, 'BD', 'PC-ARMOR.db'), (err)
   }
 });
 
-app.get('/data', (req, res) => {
-  db.all('SELECT generation FROM processor', (err, rows) => {
-    if (err) {
-      res.status(500).json({ error: 'Error al ejecutar la consulta' });
-    } else {
-      res.json(rows); // Devuelve los datos como JSON
-    }
+
+  app.get('/data', (req, res) => {
+    db.all('SELECT * FROM processor WHERE family = ?',['i3'], (err, rows) => {
+      if (err) {
+        res.status(500).json({ error: 'Error al ejecutar la consulta' });
+      } else {
+        res.json(rows); // Devuelve los datos como JSON
+      }
+    });
   });
-});
+ 

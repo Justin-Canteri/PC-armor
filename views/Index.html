@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="/style.css"> <!-- Conexión opcional al CSS -->
 </head>
 <body>
-  <h1>¡Hola, Express!</h1>
-  <button id="btn">Haz clic aquí</button>
-  <script src="/script.js"></script> <!-- Conexión al archivo JS -->
   <h1>PC Armor</h1>
 
+  <button id="btn">Haz clic aquí</button>
 
+
+  <script src="/script.js"></script> <!-- Conexión al archivo JS -->
 <!--Procesadores-->
 
 <!-- Forms chose Family Processor -->
@@ -20,10 +20,10 @@
       <label for="Family_Processor">Family Processor</label>
       <select id="Family_Processor" name="Family_Processor">
           <option value="nota" disabled>--Serie Intel--</option>
-          <option value="intel_i3">Intel Core i3 (Gama baja)</option>
-          <option value="intel_i5">Intel Core i5 (Gama media)</option>
-          <option value="intel_i7">Intel Core i7 (Gama alta)</option>
-          <option value="intel_i9">Intel Core i9 (Gama entusiasta)</option>
+          <option value="i3">Intel Core i3 (Gama baja)</option>
+          <option value="i5">Intel Core i5 (Gama media)</option>
+          <option value="i7">Intel Core i7 (Gama alta)</option>
+          <option value="i9">Intel Core i9 (Gama entusiasta)</option>
           <option value="intel_Pentium">Intel Pentium (Gama económica)</option>
           <option value="intel_Celeron">Intel Celeron (Gama básica)</option>
           <option value="intel_Xeon">Intel Xeon (Uso profesional y servidores)</option>
@@ -31,7 +31,7 @@
   </form>
 
     <!-- Form Processor i3 -->
-    <form id="i3">
+    <form id="intel_i3">
         <label for="Processor_i3">Processor i3</label>
         <select id="Processor_i3" name="Processor_i3">
             <option value="nota" disabled >--First generation--</option>
@@ -85,7 +85,7 @@
     </form>
 
     <!-- Form Processor i5 -->
-    <form id="i5">
+    <form id="intel_i5">
         <label for="Processor_i5">Processor i5</label>
         <select id="Processor_i5" name="Processor_i5">
             <option value="nota" disabled>--First Generation--</option>
@@ -170,7 +170,7 @@
     </form>
 
     <!-- Form Processor i7 -->
-    <form id="i7">
+    <form id="intel_i7">
         <label for="Processor_i7">Processor i7</label>
         <select id="Processor_i7" name="Processor_i7">
             <option value="nota" disabled>--First Generation--</option>
@@ -248,7 +248,7 @@
     </form>
 
     <!-- Form Processor i9 -->
-    <form id="i9">
+    <form id="intel_i9">
         <label for="Processor_i9">Processor i9</label>
         <select id="Processor_i9" name="Processor_i9">
             <option value="nota" disabled>--Seventh Generation--</option>
@@ -284,21 +284,13 @@
             <option value="i9-13950HX">Intel Core i9-13950HX</option>
         </select>
     </form>
-    <!--Fin de procesaores -->
+    <!--end processor -->
 
-    <!--Graficas -->
-    <form id="graphic_i3_530">
-        <label for="">Graficas para i3</label>
-        <select name="" id="">
-            <option value="Intel HD Graphics">Intel HD Graphics</option>
-            <option value="NVIDIA GeForce GT 210">NVIDIA GeForce GT 210</option>
-            <option value="NVIDIA GeForce GT 240">NVIDIA GeForce GT 240</option>
-            <option value="NVIDIA GeForce GTX 460">NVIDIA GeForce GTX 460</option>
-            <option value="NVIDIA GeForce GTX 560">NVIDIA GeForce GTX 560</option>
-            <option value="AMD Radeon HD 5450">AMD Radeon HD 5450</option>
-            <option value="AMD Radeon HD 6570">AMD Radeon HD 6570</option>
-            <option value="AMD Radeon HD 6670">AMD Radeon HD 6670</option>
-            <option value="AMD Radeon R7 240">AMD Radeon R7 240</option>
+    <!--mother board -->
+    <form id="mother">
+        <label for="mother_board">Mother board</label>
+        <select name="mother_board" id="mother_board">
+            <!--creo opcion con javascript y los lleno con las mothers que son compatibles-->
         </select>
     </form>
 
@@ -318,6 +310,8 @@
         </select>
     </form>
 
-    <p id="prueba">¡Hola</p>
+    <p id="prueba">¡Hola!</p>
+
+    <button id="prueba2">Cambiar a i5</button>
 </body>
 </html>

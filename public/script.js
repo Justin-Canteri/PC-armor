@@ -1,10 +1,11 @@
   // -------------------DE ACA
+  
   //I3
 
   // el DOMContentLoaded hace que se cree todo el codigo primero y luego ejecute eso, sino
   // puede que se ejectue esto sin antes crear la etiqueta con el id = i3
   document.addEventListener('DOMContentLoaded', () => {
-    const formI3 = document.getElementById('i3');
+    const formI3 = document.getElementById('intel_i3');
     const familyProcessorSelect = document.getElementById('Family_Processor');
 
     if (formI3) {
@@ -17,8 +18,8 @@
         familyProcessorSelect.addEventListener('change', (event) => {
             const selectedValue = event.target.value;
 
-            if (selectedValue === 'intel_i3') {
-                formI3.style.display = ''; // Muestra el formulario
+            if (selectedValue === 'i3') {
+                formI3.style.display = ''; // Muestra el formulario  LO QUE QUIERO AHORA ES QUE VAYA EL I3 PARA EL SELECT
             } else if (formI3) {
                 formI3.style.display = 'none'; // Oculta el formulario si se selecciona otra opciónz
             }
@@ -32,7 +33,7 @@
 //I5
 
 document.addEventListener('DOMContentLoaded', () => {
-  const formI3 = document.getElementById('i5');
+  const formI3 = document.getElementById('intel_i5');
   const familyProcessorSelect = document.getElementById('Family_Processor');
 
   if (formI3) {
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
       familyProcessorSelect.addEventListener('change', (event) => {
           const selectedValue = event.target.value;
 
-          if (selectedValue === 'intel_i5') {
+          if (selectedValue === 'i5') {
               formI3.style.display = ''; // Muestra el formulario
           } else if (formI3) {
               formI3.style.display = 'none'; // Oculta el formulario si se selecciona otra opción
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //I7
 
 document.addEventListener('DOMContentLoaded', () => {
-  const formI3 = document.getElementById('i7');
+  const formI3 = document.getElementById('intel_i7');
   const familyProcessorSelect = document.getElementById('Family_Processor');
 
   if (formI3) {
@@ -72,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       familyProcessorSelect.addEventListener('change', (event) => {
           const selectedValue = event.target.value;
 
-          if (selectedValue === 'intel_i7') {
+          if (selectedValue === 'i7') {
               formI3.style.display = ''; // Muestra el formulario
           } else if (formI3) {
               formI3.style.display = 'none'; // Oculta el formulario si se selecciona otra opción
@@ -86,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //I9
 
 document.addEventListener('DOMContentLoaded', () => {
-  const formI3 = document.getElementById('i9');
+  const formI3 = document.getElementById('intel_i9');
   const familyProcessorSelect = document.getElementById('Family_Processor');
 
   if (formI3) {
@@ -99,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
       familyProcessorSelect.addEventListener('change', (event) => {
           const selectedValue = event.target.value;
 
-          if (selectedValue === 'intel_i9') {
+          if (selectedValue === 'i9') {
               formI3.style.display = ''; // Muestra el formulario
           } else if (formI3) {
               formI3.style.display = 'none'; // Oculta el formulario si se selecciona otra opción
@@ -113,23 +114,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //------------------- HASTA ACA DRY (DONT REPEAT YOURSELF)
 
-
-
 //base de datos
 
 let eventTarget = document.getElementById('btn');
 
 eventTarget.addEventListener('click', function() {
-    fetch('/data')
-    .then((response) => {
+    fetch('/data').then((response) => {
       if (!response.ok) {
         throw new Error('Error al obtener los datos');
       }
       return response.json();
     })
     .then((data) => {
-      const resultado = data.map((item) => `<li>${item}</li>`).join('');
-      document.getElementById('prueba').innerHTML = `<ul>${resultado}</ul>`;
+          const resultado = data.map((item) => `<option>${JSON.stringify(item['family'])}-${JSON.stringify(item['generation'])}</option>`).join('');
+          document.getElementById('mother_board').innerHTML = `<option>${resultado}</option>`;
     })
     .catch((error) => {
       console.error(error);
