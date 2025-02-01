@@ -60,18 +60,17 @@ app.get('/data/mother/:socketprocessor', (req, res) => {
   });
 });
 
-//////////////////////////////FIX///////////////////////////////////////////////
 
 // Ruta dinámica para obtener grafic según la socket_mother
-app.get('/data/mother/grafic/:grafic', (req, res) => {
-  const { socketprocessor } = req.params;
-  const validFamilies = ['PCl 2.0 x16', 'PCl 3.0 x16', 'PCl 2.1 x16', 'PCl 4.0 x16'];
+app.get('/data/mother/grafic/:socketgraphic', (req, res) => {
+  const { socketgraphic } = req.params;
+  const validFamilies = ['PCIe_2_0_x16', 'PCIe_3_0_x16', 'PCIe_2_1_x16', 'PCIe_4_0_x16'];
 
-  if (!validFamilies.includes(socketprocessor)) {
+  if (!validFamilies.includes(socketgraphic)) {
       return res.status(400).json({ error: 'Familia de procesador no válida' });
   }
 
-  db.all('SELECT * FROM graphic WHERE socket = ?', [socketprocessor], (err, rows) => {
+  db.all('SELECT * FROM graphic WHERE socket = ?', [socketgraphic], (err, rows) => {
       if (err) {
           return res.status(500).json({ error: 'Error al ejecutar la consulta' });
       }
@@ -79,17 +78,16 @@ app.get('/data/mother/grafic/:grafic', (req, res) => {
   });
 });
 
-
 // Ruta dinámica para obtener ram según la socket_mother
-app.get('/data/mother/grafic/ram/:ram', (req, res) => {
-  const { socketprocessor } = req.params;
+app.get('/data/mother/grafic/ram/:socketram', (req, res) => {
+  const { socketram } = req.params;
   const validFamilies = ['DDR3', 'DDR4', 'DDR5'];
 
-  if (!validFamilies.includes(socketprocessor)) {
+  if (!validFamilies.includes(socketram)) {
       return res.status(400).json({ error: 'Familia de procesador no válida' });
   }
 
-  db.all('SELECT * FROM ram WHERE type = ?', [socketprocessor], (err, rows) => {
+  db.all('SELECT * FROM ram WHERE type = ?', [socketram], (err, rows) => {
       if (err) {
           return res.status(500).json({ error: 'Error al ejecutar la consulta' });
       }
@@ -99,18 +97,35 @@ app.get('/data/mother/grafic/ram/:ram', (req, res) => {
 
 
 // Ruta dinámica para obtener storage según la socket_mother
-app.get('/data/mother/grafic/ram/storage/:storage', (req, res) => {
-  const { socketprocessor } = req.params;
-  const validFamilies = ['SATA 3 Gb/s', 'SATA 6 Gb/s', 'NVMe'];
+app.get('/data/mother/grafic/ram/storage/:socketstorage', (req, res) => {
+  const { socketstorage } = req.params;
+  const validFamilies = ['SATA_3_Gb', 'SATA_6_Gb', 'NVMe'];
 
-  if (!validFamilies.includes(socketprocessor)) {
+  if (!validFamilies.includes(socketstorage)) {
       return res.status(400).json({ error: 'Familia de procesador no válida' });
   }
 
-  db.all('SELECT * FROM storage WHERE socket_storage = ?', [socketprocessor], (err, rows) => {
+  db.all('SELECT * FROM storage WHERE socket_storage = ?', [socketstorage], (err, rows) => {
       if (err) {
           return res.status(500).json({ error: 'Error al ejecutar la consulta' });
       }
       res.json(rows);
   });
 });
+
+// Ruta dinamica para obtener fuentes
+app.get('/data/mother/grafic/ram/storage/font/:socketstorage', (req, res) => {
+    const { socketstorage } = req.params;
+    const validFamilies = ['850W', '760W', '750W', '700W', '650W', '600W', '550W', '500W', '1200W', '1000W'];
+  
+    if (!validFamilies.includes(socketstorage)) {
+        return res.status(400).json({ error: 'Familia de procesador no válida' });
+    }
+  
+    db.all('SELECT * FROM font WHERE volt = ?', [socketstorage], (err, rows) => {
+        if (err) {
+            return res.status(500).json({ error: 'Error al ejecutar la consulta' });
+        }
+        res.json(rows);
+    });
+  });

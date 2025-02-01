@@ -1,0 +1,85 @@
+ 
+ HTML
+ 
+ <!-- Form Processor i3 -->
+    <form id="intel_i3">
+        <label for="Processor_i3">Processor i3</label>
+        <select id="Processor_i3" name="Processor_i3">
+            <!--lista de procesadores i3-->
+        </select>
+    </form>
+
+    <!-- Form Processor i5 -->
+    <form id="intel_i5">
+        <label for="Processor_i5">Processor i5</label>
+        <select id="Processor_i5" name="Processor_i5">
+            <!--lista de procesadores i5-->
+        </select>
+    </form>
+
+    <!-- Form Processor i7 -->
+    <form id="intel_i7">
+        <label for="Processor_i7">Processor i7</label>
+        <select id="Processor_i7" name="Processor_i7">
+            <!--lista de procesadores i7-->
+        </select>
+    </form>
+    
+
+    <!-- Form Processor i9 -->
+    <form id="intel_i9">
+        <label for="Processor_i9">Processor i9</label>
+        <select id="Processor_i9" name="Processor_i9">
+            <!--lista de procesadores i9-->
+        </select>
+    </form>
+
+
+SCRIPT.JS
+
+document.addEventListener('DOMContentLoaded', () => {
+    const familyProcessorSelect = document.getElementById('Family_Processor'); // toma la id del select de las generaciones
+    const validFamilies = ['i3', 'i5', 'i7', 'i9']; // crea una lista con las familias
+
+    if (!familyProcessorSelect) {
+        console.error('Elemento con ID "Family_Processor" no encontrado.');  //comprueba si el id del select de las generaciones existe
+        return;
+    }
+
+    familyProcessorSelect.addEventListener('change', (event) => {  //  programo el evento
+        const selectedFamily = event.target.value;   //tomo el value de las opciones que tiene la seleccion
+
+        validFamilies.forEach(family => {
+            const form = document.getElementById(`processor`);
+            if (form) {
+                form.style.display = (family === selectedFamily) ? '' : 'none';   // busco para cada uno de los elementos de la lista de familias el 
+            }
+        });
+
+        if (!validFamilies.includes(selectedFamily)) {
+            return;
+        }
+
+        fetch(`/data/${selectedFamily}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al obtener los datos');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const options = data.map(item => `<option value="${item['soket']}">${item['family']}-${item['generation']}</option>`).join('');
+                document.getElementById(`Processorfor`).innerHTML = options;
+            })
+            .catch(error => {
+                console.error(error);
+                document.getElementById(`Processorfor`).innerHTML = 'Error al cargar los datos.';
+            });
+    });
+
+    // Ocultar todos los formularios al inicio
+    validFamilies.forEach(family => {
+        const form = document.getElementById(`Processorfor`);
+        if (form) form.style.display = 'none';
+    });
+});
