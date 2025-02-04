@@ -48,12 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     
-    // Oculta el formulario al inicio
-    const form = document.getElementById('processor');
-    if (form) {
-        form.style.display = 'none';
-    }
-    
 });
 
 
@@ -98,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
                 // Llena el select con las opciones obtenidas de la API
-                motherBoardSelect.innerHTML = data.map(item => `<option value="${item['socket_graphic']}" data-extra="${item['socket_ram']}" data-extra2="${item['socket_storage']}" data-extra3="${item['consume']}">
+                motherBoardSelect.innerHTML = data.map(item => `<option value="${item['socket_graphic']}" data-ram="${item['socket_ram']}" data-storage="${item['socket_storage']}" data-extra3="${item['consume']}">
                     ${item['name']}
                     </option>`).join('');
             })
@@ -106,13 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error en la solicitud:', error);
             });
     });
-
-    
-    // Oculta el formulario al inicio
-    const form = document.getElementById('mother');
-    if (form) {
-        form.style.display = 'none';
-    }
     
 });
 
@@ -166,12 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     
-    // Oculta el formulario al inicio
-    const form = document.getElementById('graphic');
-    if (form) {
-        form.style.display = 'none';
-    }
-    
 });
 
 
@@ -187,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     familyProcessorSelect.addEventListener('change', (event) => {
         const selectedOption = event.target.options[event.target.selectedIndex];
-        const selectedFamily = selectedOption.dataset.extra; // Obtiene el valor seleccionado  CAMBIAR PARA USAR DATAEXTRA Y NO VALUE
+        const selectedFamily = selectedOption.dataset.ram; // Obtiene el valor seleccionado  CAMBIAR PARA USAR DATAEXTRA Y NO VALUE
 
         // Verifica si la familia es válida
         if (!validFamilies.includes(selectedFamily)) {
@@ -225,12 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     
-    // Oculta el formulario al inicio
-    const form = document.getElementById('ram');
-    if (form) {
-        form.style.display = 'none';
-    }
-    
 });
 
 
@@ -246,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     familyProcessorSelect.addEventListener('change', (event) => {
         const selectedOption = event.target.options[event.target.selectedIndex];
-        const selectedFamily = selectedOption.dataset.extra2; // Obtiene el valor seleccionado  CAMBIAR PARA USAR DATAEXTRA Y NO VALUE
+        const selectedFamily = selectedOption.dataset.storage;  // Obtiene el valor seleccionado  CAMBIAR PARA USAR DATAEXTRA Y NO VALUE
 
         // Verifica si la familia es válida
         if (!validFamilies.includes(selectedFamily)) {
@@ -283,12 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     });
 
-    
-    // Oculta el formulario al inicio
-    const form = document.getElementById('Storage');
-    if (form) {
-        form.style.display = 'none';
-    }
     
 });
 
