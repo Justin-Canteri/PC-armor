@@ -7,16 +7,13 @@
   <link rel="stylesheet" href="/style.css"> <!-- Conexión opcional al CSS -->
 </head>
 <body>
-  <h1>PC Armor</h1>
-
-  <button id="btn">Haz clic aquí</button>
-
+  <h1 id="nosecomo" class="move">PC Armor</h1>
 
   <script src="/script.js"></script> <!-- Conexión al archivo JS -->
 <!--Procesadores-->
 
 <!-- Forms chose Family Processor -->
-  <form>
+  <form class="move">
       <label for="Family_Processor">Family Processor <br></label>
       <select id="Family_Processor" name="Family_Processor">
           <option value="nota" disabled>--Serie Intel--</option>
@@ -32,7 +29,7 @@
 
    
     <!-- Form Processor  -->
-    <form id="processor">
+    <form id="processor" class="move">
         <label for="processorfor">Processor <br></label>
         <select id="processorfor" name="processorfor">
             <!--lista de procesadores -->
@@ -40,7 +37,7 @@
     </form>
 
     <!--mother board -->
-    <form id="mother">
+    <form id="mother" class="move">
         <label for="mother_board">Mother board <br></label>
         <select name="mother_board" id="mother_board">
             <!--creo opcion con javascript y los lleno con las mothers que son compatibles-->
@@ -48,7 +45,7 @@
     </form>
 
     <!--video card -->
-    <form id="graphic">
+    <form id="graphic" class="move">
         <label for="graphic_for">video card <br></label>
         <select name="graphic_for" id="graphic_for">
             
@@ -57,7 +54,7 @@
 
 
     <!--RAM -->
-    <form id="ram">
+    <form id="ram" class="move">
         <label for="ram_for">RAM <br></label>
         <select name="ram_for" id="ram_for">
             
@@ -65,7 +62,7 @@
     </form>
 
     <!--Storage -->
-    <form id="Storage">
+    <form id="Storage" class="move">
         <label for="Storage_for">Storage <br></label>
         <select name="Storage_for" id="Storage_for">
             
@@ -73,12 +70,11 @@
     </form>
 
     <!--font-->
-    <form id="font">
+    <form id="font" class="move">
         <label for="font_for">font <br></label>
         <select name="font_for" id="font_for">
             
         </select>
     </form>
-    
 </body>
 </html>

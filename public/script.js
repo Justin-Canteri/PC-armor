@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 // Llena el select con las opciones obtenidas de la API
                 motherBoardSelect.innerHTML = data.map(item => `<option value="${item['soket']}" data-extra="${item['consume']}">${item['family']}-${item['generation']}</option>`).join('');
+                
             })
             .catch(error => {
                 console.error('Error en la solicitud:', error);
@@ -214,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
                 // Llena el select con las opciones obtenidas de la API
-                motherBoardSelect.innerHTML = data.map(item => `<option value="${item['consme']}">
+                motherBoardSelect.innerHTML = data.map(item => `<option value="${item['consume']}">
                     ${item['type']} - ${item['capacity']} - ${item['frequency']}
                     </option>`).join('');
             })
@@ -289,4 +290,60 @@ document.addEventListener('DOMContentLoaded', () => {
         form.style.display = 'none';
     }
     
+});
+
+
+
+//LISTA FONT
+document.addEventListener('DOMContentLoaded', () => {
+    const selects = ['processorfor', 'mother_board', 'graphic_for', 'ram_for', 'Storage_for'];
+    const fontSelect = document.getElementById('font_for');
+
+    // Función que calcula el consumo total
+    function updateTotalConsumption() {
+        let total = 0;
+
+        selects.forEach(id => {
+            const selectElement = document.getElementById(id);
+            if (selectElement && selectElement.selectedIndex !== -1) {
+                const selectedOption = selectElement.options[selectElement.selectedIndex];
+                const consumption = parseFloat(selectedOption.dataset.extra || selectedOption.value) || 0;
+                total += consumption;
+            }
+        });
+        // Llamar a la API para actualizar la lista de fuentes con voltaje superior al total calculado
+        updateFontOptions(total);
+    }
+
+    function updateFontOptions(total) {
+        fetch(`/data/mother/grafic/ram/storage/font/${total}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error al obtener los datos (${response.status})`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (!fontSelect) {
+                    console.error('Elemento con ID "font_for" no encontrado.');
+                    return;
+                }
+                // Llena el select con las opciones de fuentes adecuadas
+                fontSelect.innerHTML = data.map(item => `<option>${item['name']} - ${item['volt']}W, ${item['certification']}</option>`).join('');
+            })
+            .catch(error => {
+                console.error('Error en la solicitud:', error);
+            });
+    }
+
+    // Agregar evento a cada select
+    selects.forEach(id => {
+        const selectElement = document.getElementById(id);
+        if (selectElement) {
+            selectElement.addEventListener('change', updateTotalConsumption);
+        }
+    });
+
+    // Inicializar el cálculo de consumo al cargar la página
+    updateTotalConsumption();
 });

@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
+const puppeteer = require("puppeteer");
 
 // Middleware para servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
@@ -116,16 +117,11 @@ app.get('/data/mother/grafic/ram/storage/:socketstorage', (req, res) => {
 // Ruta dinamica para obtener fuentes
 app.get('/data/mother/grafic/ram/storage/font/:socketstorage', (req, res) => {
     const { socketstorage } = req.params;
-    const validFamilies = ['850W', '760W', '750W', '700W', '650W', '600W', '550W', '500W', '1200W', '1000W'];
   
-    if (!validFamilies.includes(socketstorage)) {
-        return res.status(400).json({ error: 'Familia de procesador no válida' });
-    }
-  
-    db.all('SELECT * FROM font WHERE volt = ?', [socketstorage], (err, rows) => {
+    db.all('SELECT * FROM font WHERE volt > ?', [socketstorage], (err, rows) => {
         if (err) {
             return res.status(500).json({ error: 'Error al ejecutar la consulta' });
         }
         res.json(rows);
     });
-  });
+});
