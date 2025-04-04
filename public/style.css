@@ -1,10 +1,105 @@
-.move {
-    text-align: center;
-}
+/* styles.css */
 
-#nosecomo {
-    background-image: url("https://digitalalliance.co.id/wp-content/uploads/2021/06/banner-category-gaming-pc-home-series.png");
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  h1 {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    color: #ffffff;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 0;
+  }
+  
+  form {
+    background-color: #ffffff;
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  label {
+    display: block;
+    margin-top: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  select {
     width: 100%;
-    height: 50px;
-    color: aliceblue;
-}
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #f0f9ff;
+    transition: all 0.2s ease;
+  }
+  
+  select:focus {
+    border-color: #3498db;
+    outline: none;
+    background-color: #ffffff;
+  }
+  
+  select#procesador {
+    border-left: 6px solid #2980b9;
+  }
+  
+  select#motherboard {
+    border-left: 6px solid #8e44ad;
+  }
+  
+  select#ram {
+    border-left: 6px solid #27ae60;
+  }
+  
+  select#tarjetaGrafica {
+    border-left: 6px solid #e67e22;
+  }
+  
+  select#almacenamiento {
+    border-left: 6px solid #f39c12;
+  }
+  
+  select#fuente {
+    border-left: 6px solid #e74c3c;
+  }
+  
+  button {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    background-color: #2ecc71;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:hover {
+    background-color: #27ae60;
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 1rem;
+    color: #ffffff;
+    font-size: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
